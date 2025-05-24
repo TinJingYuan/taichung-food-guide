@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>我的潛水地點散冊</title>
+  <link rel="stylesheet" href="Style.css">
+
+</head>
+
+<body>
+  <header>
+    <h1>我的潛水地點散冊</h1>
+    <div class="header button"></div>
+    <button onclick="navigate('index.html')">首頁</button>
+    <button onclick="navigate('journey.html')">地點</button>
+    <button onclick="navigate('contact.html')">聯絡我</button>
+    </div>
+  </header>
+  <main>
+    <h1>探索台灣最美的潛水天堂</h1>
+    <p>潛水懶人包2025，全台灣數個必去潛水點推薦，讓我帶你潛入海底世界!</p>
+    <video width="100%" controls>
+      <source src="feed fish.mp4" type="video/mp4">
+    </video>
+    <img
+      src="https://chargeraccount.org/wp-content/uploads/2023/06/K7Kk3DSxN0r4AVhONa9ruggbas3DWRIrbnHw1dJc-1-900x600.jpg"
+      style="max-width: 100%; height: auto;" />
+    <p>本網頁用途為提供潛客與旅客潛水導覽</p>
+    <p>(為豐富內容推薦潛水地點包含浮潛)</p>
+  </main>
+  <footer>
+    <p>&copy; 2025 潛水地點散冊</p>
+  </footer>
+  <script>
+    function navigate(page) {
+      window.location.href = page;
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      });
+      document.querySelectorAll(".animate-on-scroll").forEach(elem => {
+        observer.observe(elem);
+      });
+    });
+  </script>
+</body>
+
+</html>

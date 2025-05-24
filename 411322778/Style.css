@@ -1,0 +1,107 @@
+body {
+    background-color: #d6ecf3;
+    /* 背景色（海洋感藍） */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background: #333;
+    color: white;
+    padding: 20px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    /* 讓左右兩側分開排列 */
+    align-items: center;
+    /* 垂直置中 */
+}
+
+header button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 1.0rem;
+    transition: 0.3s ease;
+    box-shadow: 0 0 5px #007bff;
+    animation: glow 1.5s infinite alternate;
+    margin-right: 0px;
+}
+
+header button:hover {
+    background: #0056b3;
+    box-shadow: 0 0 5px #66b2ff, 0 0 10px #66b2ff;
+    transform: scale(1.08);
+    /* 稍微放大多一點，對得起動畫感 */
+}
+
+main {
+    background-color: white;
+    /* 內容區塊是白底 */
+    padding: 40px;
+    margin: 120px auto;
+    max-width: 800px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* 陰影感 */
+}
+
+/* RWD 響應式設計：小螢幕調整 */
+@media (max-width: 600px) {
+    header button {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 1.4rem;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slide-in {
+    animation: slideInFromLeft 1s ease-out forwards;
+}
+
+footer {
+    background: #333;
+    color: white;
+    padding: 1em;
+    margin-top: 2rem;
+}
+
+/* 初始狀態：元素還沒出現在畫面時 */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 1s ease-out;
+}
+
+/* 進入畫面後，加入這個 class 就會觸發動畫 */
+.animate-on-scroll.active {
+    opacity: 1;
+    transform: translateX(0);
+}

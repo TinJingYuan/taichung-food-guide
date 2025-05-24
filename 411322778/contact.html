@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>聯絡我</title>
+  <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+  <header>
+    <h1>我的潛水地點散冊</h1>
+    <div class="header-buttons"></div>
+    <button onclick="navigate('index.html')">首頁</button>
+    <button onclick="navigate('journey.html')">地點</button>
+    <button onclick="navigate('contact.html')">聯絡我</button>
+    </div>
+  </header>
+  <main>
+    <h2>聯絡方式</h2>
+    <p>如有修改網頁內容、詢問或建議歡迎聯絡！</p>
+    <p>📧 電子信箱：<a href="mailto:txk941115@gmail.com" class="email-link">txk941115@gmail.com</a></p>
+  </main>
+  <footer>
+    <p>&copy; 2025 潛水地點散冊</p>
+  </footer>
+  <script>
+    function navigate(page) {
+      window.location.href = page;
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      });
+      document.querySelectorAll(".animate-on-scroll").forEach(elem => {
+        observer.observe(elem);
+      });
+    });
+  </script>
+</body>
+
+</html>

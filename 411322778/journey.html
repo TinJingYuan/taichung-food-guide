@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>我的潛水地點散冊</title>
+  <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+  <header>
+    <h1>我的潛水地點散冊</h1>
+    <div class="header-buttons"></div>
+    <button onclick="navigate('index.html')">首頁</button>
+    <button onclick="navigate('journey.html')">地點</button>
+    <button onclick="navigate('contact.html')">聯絡我</button>
+    </div>
+  </header>
+  <main>
+    <!-- 本島分類區塊 -->
+    <section class="category">
+      <h2 class="animate-on-scroll">本島潛水地點</h2>
+      <div class="spot">
+        <h3 class="animate-on-scroll">屏東 墾丁後壁湖</h3>
+        <p></p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1850.4699348887577!2d120.74578639391557!3d21.936862958776317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3471b134993e194f%3A0x16dcd9cfa45a6a00!2z5b6M5aOB5rmW5r2b5rC0!5e0!3m2!1szh-TW!2stw!4v1747710175915!5m2!1szh-TW!2stw"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="spot">
+          <h3 class="animate-on-scroll">屏東 墾丁南灣</h3>
+          <p class="animate-on-scroll">位在墾丁一個很適合玩水的地方，因為靠近海邊所以有很多水上活動可以玩</p>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3700.366969019475!2d120.76142890959176!3d21.958874619114937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3471b1abaefd19b9%3A0x77b6609498f2b08f!2z5Y2X54Gj6YGK5oap5Y2A!5e0!3m2!1szh-TW!2stw!4v1747710615676!5m2!1szh-TW!2stw"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+    </section>
+    <!-- 外島分類區塊 -->
+    <section class="category">
+      <h2 class="animate-on-scroll">外島潛水地點</h2>
+      <div class="spot">
+        <h3 class="animate-on-scroll">綠島</h3>
+        <p class="animate-on-scroll">綠島擁有湛藍清澈的海水、珊瑚礁和多樣海洋生物，是台灣最熱門的潛水天堂之一。</p>
+        <img src="green_island.jpg" alt="綠島潛水風景" />
+      </div>
+      <div class="spot">
+        <h3 class="animate-on-scroll">蘭嶼</h3>
+        <p class="animate-on-scroll">蘭嶼原始自然的海岸與神秘海底洞穴，吸引許多資深潛水客前來探索。</p>
+        <img src="lanyu.jpg" alt="蘭嶼海底景色" />
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 潛水地點散冊</p>
+  </footer>
+  <script>
+    function navigate(page) {
+      window.location.href = page;
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      });
+      document.querySelectorAll(".animate-on-scroll").forEach(elem => {
+        observer.observe(elem);
+      });
+    });
+  </script>
+</body>
+
+</html>
